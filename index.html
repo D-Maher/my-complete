@@ -10,26 +10,28 @@
   <script src="node_modules/react/dist/react.js"></script>
   <script src="node_modules/react-dom/dist/react-dom.js"></script>
   <script>
+    // shorthand for calling React.createElement() below
+    const ce = React.createElement
 
     const MyTitle = function () {
       return (
-        React.createElement('div', null, 
-          React.createElement('h1', null, 'My second component.')
+        ce('div', null, 
+          ce('h1', null, 'My second component.')
         )
       )
     }
 
     const MyFirstComponent = function () {
-      return React.createElement('div', {id: 'my-first-component'},
-        React.createElement(MyTitle), 
-        React.createElement(MyTitle), 
-        React.createElement(MyTitle), 
-        React.createElement(MyTitle) 
+      return ce('div', {id: 'my-first-component'},
+        ce(MyTitle), 
+        ce(MyTitle), 
+        ce(MyTitle), 
+        ce(MyTitle) 
       )
     }
 
     ReactDOM.render(
-      React.createElement(MyFirstComponent),
+      ce(MyFirstComponent),
       document.getElementById('app')
     )
   </script>
