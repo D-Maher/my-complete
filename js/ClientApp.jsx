@@ -1,16 +1,11 @@
 // ES6 modules
-// below is same as const React = require('react'), and we are including all of React
+// same as const React = require('react'), and here we are including all of React
 import React from 'react';
-// below we are only including render from 'react-dom' since its the only thing that we need from ReactDOM
+// only include render from 'react-dom' since its the only thing that we need from ReactDOM
 import { render } from 'react-dom';
+// import the Landing component from Landing.jsx
+import Landing from './Landing';
 
-const App = () =>
-  <div className="app">
-    <div className="landing">
-      <h1>Reactflix</h1>
-      <input type="text" placeholder="Search" />
-      <a>or Browse All</a>
-    </div>
-  </div>;
+const App = () => <div className="app" />;
 
 render(<App />, document.getElementById('app'));
