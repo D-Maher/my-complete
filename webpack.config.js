@@ -10,7 +10,8 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    publicPath: '/public/' // tells Webpack the name of the path (on the server) where we anticipate our bundle is being served from
+    publicPath: '/public/', // tells Webpack the name of the path (on the server) where we anticipate our bundle is being served from
+    historyApiFallback: true // tells dev server that if it does not recognize something, let the client worry about the routing
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'] // the order of resolution that Webpack will try different file extensions before it finds the correct one
