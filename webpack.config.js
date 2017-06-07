@@ -22,6 +22,12 @@ module.exports = {
     rules: [
       // array of rules that Webpack will use to apply different loaders (e.g. Babel loader) to the code
       {
+        enforce: 'pre', // this ensures that this runs before Babel
+        test: /\.jsx?$/, // same as below
+        loader: 'eslint-loader', // the loader we want to run the code through
+        exclude: /node_modules/ // we don't care about node_modules/ passing linting
+      },
+      {
         test: /\.jsx?$/, // Regex that says extension for a file must be .js and possibly x (i.e. .js and .jsx) in order to be run through the loader below
         loader: 'babel-loader' // the loader we want to run code through
       }
