@@ -3,17 +3,22 @@
 import React from 'react';
 // only include render from 'react-dom' since its the only thing that we need from ReactDOM
 import { render } from 'react-dom';
-// include BrowserRouter and Route from 'react-router-dom'
-import { BrowserRouter, Route } from 'react-router-dom';
+// include BrowserRouter, Route, and Switch from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // import other components from js/ directory
 import Landing from './Landing';
 import Search from './Search';
 
+const FourOhFour = () => <h1>404</h1>;
+
 const App = () =>
   <BrowserRouter>
     <div className="app">
-      <Route exact path="/" component={Landing} />
-      <Route path="/search" component={Search} />
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <Route path="/search" component={Search} />
+        <Route component={FourOhFour} />
+      </Switch>
     </div>
   </BrowserRouter>;
 
