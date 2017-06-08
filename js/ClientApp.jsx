@@ -1,16 +1,20 @@
 // ES6 modules
-// below is same as const React = require('react'), and we are including all of React
+// same as const React = require('react'), and here we are including all of React
 import React from 'react';
-// below we are only including render from 'react-dom' since its the only thing that we need from ReactDOM
+// only include render from 'react-dom' since its the only thing that we need from ReactDOM
 import { render } from 'react-dom';
+// include HashRouter and Route from 'react-router-dom'
+import { HashRouter, Route } from 'react-router-dom';
+// import other components from js/ directory
+import Landing from './Landing';
+import Search from './Search';
 
 const App = () =>
-  <div className="app">
-    <div className="landing">
-      <h1>Reactflix</h1>
-      <input type="text" placeholder="Search" />
-      <a>or Browse All</a>
+  <HashRouter>
+    <div className="app">
+      <Route exact path="/" component={Landing} />
+      <Route path="/search" component={Search} />
     </div>
-  </div>;
+  </HashRouter>;
 
 render(<App />, document.getElementById('app'));
