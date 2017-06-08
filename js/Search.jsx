@@ -1,4 +1,5 @@
 import React from 'react';
+import ShowCard from './ShowCard';
 // import preload data from data.json
 import preload from '../data.json';
 
@@ -7,16 +8,8 @@ import preload from '../data.json';
 
 const Search = () =>
   <div className="search">
-    {preload.shows.map(show =>
-      <div className="show-card">
-        <img src={`/public/img/posters/${show.poster}`} alt={`${show.title} Show Poster`} />
-        <div>
-          <h3>{show.title}</h3>
-          <h4>({show.year})</h4>
-          <p>{show.description}</p>
-        </div>
-      </div>
-    )}
+    {/* the 'show' that comes right after 'ShowCard' is part of props */}
+    {preload.shows.map(show => <ShowCard show={show} />)}
   </div>;
 
 export default Search;
