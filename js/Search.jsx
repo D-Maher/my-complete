@@ -9,7 +9,15 @@ import preload from '../data.json';
 const Search = () =>
   <div className="search">
     {/* the 'show' that comes right after 'ShowCard' is part of props */}
-    {preload.shows.map(show => <ShowCard show={show} />)}
+    {preload.shows.map(show =>
+      <ShowCard
+        key={show.imdbID}
+        poster={show.poster}
+        title={show.title}
+        year={show.year}
+        description={show.description}
+      />
+    )}
   </div>;
 
 export default Search;
